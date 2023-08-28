@@ -23,6 +23,7 @@
     flex-shrink: 0;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
+    cursor: pointer;
     &:hover {
       background-color: #2196F3;
       color: #FFF;
@@ -40,6 +41,7 @@
     flex-shrink: 0;
     border-left: solid 0.1px #2196F3;
     border-right: solid 0.1px #2196F3;
+    cursor: pointer;
     &:hover {
       background-color: #2196F3;
       color: #FFF;
@@ -57,6 +59,7 @@
     flex-shrink: 0;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    cursor: pointer;
     &:hover {
       background-color: #2196F3;
       color: #FFF;
