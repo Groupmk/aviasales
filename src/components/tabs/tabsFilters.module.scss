@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    width: 33rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    border: solid 0.1px #2196F3;
+  }
+  
+  .cheapestTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 11rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    &:hover {
+      background-color: #2196F3;
+      color: #FFF;
+      border: solid 0.1px #2196F3;
+    }
+  }
+  
+  .fastestTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 11rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border-left: solid 0.1px #2196F3;
+    border-right: solid 0.1px #2196F3;
+    &:hover {
+      background-color: #2196F3;
+      color: #FFF;
+      border: solid 0.1px #2196F3;
+    }
+  }
+  
+  .optimalTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 11rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    &:hover {
+      background-color: #2196F3;
+      color: #FFF;
+      border: solid 0.1px #2196F3;
+    }
+  }
+  

@@ -1,0 +1,90 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+}
+
+.ticketCard{
+    width: 31.375rem;
+    height: 11.5rem;
+    flex-shrink: 0;
+    gap: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    padding: 0 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #FFF;
+}
+.ticketContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: -1rem;
+    justify-items: center;
+}
+.ticketContainerHeder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stopsContainer{
+    display: flex;
+    vertical-align: top;
+    flex-direction: column;
+}
+
+.ticketData{
+    color: #4a4a4a;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    margin-top: -0.5rem;
+  
+}
+
+.ticketDataText{
+
+}
+
+.textStops{
+    margin-bottom: 0.5rem;
+}
+.calculationTimeText{
+    display: block;
+    margin-top: 1rem;
+}
+.timeCalculation{
+    margin-top: 0.5rem;
+}
+
+.logo{
+    width: 6.875rem;
+    height: 4.25rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.showMore{
+    width: 33.4rem;
+    height: 3.125rem;
+    flex-shrink: 0;
+    background-color: #2196F3;
+    border-radius: 0.5rem;
+    border: none;
+    margin-bottom: 5rem;
+    color: #FFF;
+}
+
+.scrollBtn{
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    left: 40rem;
+    bottom: 10rem;
+    background-color: #2196F3;
+    color: #FFF;
+    border: none;
+}
