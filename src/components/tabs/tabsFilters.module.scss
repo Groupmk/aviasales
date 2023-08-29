@@ -12,7 +12,7 @@
     border-radius: 0.5rem;
     border: solid 0.1px #2196F3;
   }
-  
+
   .cheapestTab {
     display: flex;
     justify-content: center;
@@ -24,11 +24,6 @@
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     cursor: pointer;
-    &:hover {
-      background-color: #2196F3;
-      color: #FFF;
-      border: solid 0.1px #2196F3;
-    }
   }
   
   .fastestTab {
@@ -42,11 +37,6 @@
     border-left: solid 0.1px #2196F3;
     border-right: solid 0.1px #2196F3;
     cursor: pointer;
-    &:hover {
-      background-color: #2196F3;
-      color: #FFF;
-      border: solid 0.1px #2196F3;
-    }
   }
   
   .optimalTab {
@@ -60,10 +50,5 @@
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     cursor: pointer;
-    &:hover {
-      background-color: #2196F3;
-      color: #FFF;
-      border: solid 0.1px #2196F3;
-    }
   }
   

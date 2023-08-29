@@ -41,13 +41,34 @@ const FilteredTicketsComponent = () => {
 
   return (
     <div className={container}>
-      <div className={cheapestTab} onClick={() => changeTab('cheapest')}>
+      <div
+        className={cheapestTab}
+        style={{
+          backgroundColor: activeTab === 'cheapest' ? '#2196F3' : null,
+          color: activeTab === 'cheapest' ? 'white' : null,
+        }}
+        onClick={() => changeTab('cheapest')}
+      >
         Самый дешевый
       </div>
-      <div className={fastestTab} onClick={() => changeTab('fastest')}>
+      <div
+        className={fastestTab}
+        onClick={() => changeTab('fastest')}
+        style={{
+          backgroundColor: activeTab === 'fastest' ? '#2196F3' : null,
+          color: activeTab === 'fastest' ? 'white' : null,
+        }}
+      >
         Самый быстрый
       </div>
-      <div className={optimalTab} onClick={() => changeTab('optimal')}>
+      <div
+        className={optimalTab}
+        onClick={() => changeTab('optimal')}
+        style={{
+          backgroundColor: activeTab === 'optimal' ? '#2196F3' : null,
+          color: activeTab === 'optimal' ? 'white' : null,
+        }}
+      >
         Оптимальный
       </div>
     </div>
