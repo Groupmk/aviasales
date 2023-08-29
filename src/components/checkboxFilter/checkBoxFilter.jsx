@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFilter, setFilteredCheckBox } from '../../redux/reducers/reducerCheckBox/reducerCheckBox';
 
 import Style from './checkbox.module.scss';
+
 const FilterCheckbox = () => {
   const dispatch = useDispatch();
   const { filters } = useSelector((state) => state.checkBox);
   const { tickets } = useSelector((state) => state.fetch);
   const [filterText, setFilterText] = useState('Количество пересадок');
   const { checkBox, checkBoxText, checkBoxContainer, check, checkInput, custonCheckBox } = Style;
-
+  const shouldShowAllChecked = (updatedFilters) => {
+    return updatedFilters.nonStops && updatedFilters.oneStop && updatedFilters.twoStops && updatedFilters.threeStops;
+  };
   useEffect(() => {
     dispatch(
       setFilter({
@@ -23,31 +26,6 @@ const FilterCheckbox = () => {
     );
   }, [dispatch]);
 
-  useEffect(() => {
-    const applyFilters = async () => {
-      const { all, nonStops, oneStop, twoStops, threeStops } = filters;
-      const checkBoxFilters = tickets.filter((ticket) => {
-        if (all) {
-          return true;
-        }
-        if (
-          (nonStops && ticket.segments.every((segment) => segment.stops.length === 0)) ||
-          (oneStop && ticket.segments.every((segment) => segment.stops.length === 1)) ||
-          (twoStops && ticket.segments.every((segment) => segment.stops.length === 2)) ||
-          (threeStops && ticket.segments.every((segment) => segment.stops.length === 3))
-        ) {
-          return true;
-        }
-        return false;
-      });
-      await dispatch(setFilteredCheckBox(checkBoxFilters));
-    };
-    applyFilters();
-  }, [filters, tickets, dispatch]);
-
-  const shouldShowAllChecked = () => {
-    return filters.nonStops && filters.oneStop && filters.twoStops && filters.threeStops;
-  };
   const handleFilterChange = (filterName) => (e) => {
     let updatedFilters;
 
@@ -69,16 +47,38 @@ const FilterCheckbox = () => {
       };
     } else {
       updatedFilters = { ...filters, [filterName]: e.target.checked };
-      if (!e.target.checked && shouldShowAllChecked()) {
+      if (filterName !== 'all' && shouldShowAllChecked(updatedFilters)) {
+        updatedFilters.all = true;
+      } else {
         updatedFilters.all = false;
       }
     }
 
     dispatch(setFilter(updatedFilters));
   };
+
   useEffect(() => {
     setFilterText(filterText.toUpperCase());
   }, [filterText]);
+
+  useEffect(() => {
+    const applyFilters = async () => {
+      const { nonStops, oneStop, twoStops, threeStops } = filters;
+      const checkBoxFilters = tickets.filter((ticket) => {
+        if (
+          (nonStops && ticket.segments.every((segment) => segment.stops.length === 0)) ||
+          (oneStop && ticket.segments.every((segment) => segment.stops.length === 1)) ||
+          (twoStops && ticket.segments.every((segment) => segment.stops.length === 2)) ||
+          (threeStops && ticket.segments.every((segment) => segment.stops.length === 3))
+        ) {
+          return true;
+        }
+        return false;
+      });
+      await dispatch(setFilteredCheckBox(checkBoxFilters));
+    };
+    applyFilters();
+  }, [filters, tickets, dispatch]);
 
   return (
     <div className={checkBoxContainer}>

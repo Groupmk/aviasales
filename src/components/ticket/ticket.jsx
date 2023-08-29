@@ -5,6 +5,7 @@ import { format, addMinutes } from 'date-fns';
 import { setShow, setResShow } from '../../redux/reducers/reducerCheckBox/reducerCheckBox';
 import logoAviasales from '../../imports/importsImg';
 import { calculationTime } from '../../calculation/calculationTime';
+import Informational from '../../alerts/informations';
 
 import Style from './ticket.module.scss';
 
@@ -56,6 +57,7 @@ const Ticket = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  if (filteredCheckBox.length === 0) return <Informational />;
 
   return (
     <div className={container}>
