@@ -30,7 +30,13 @@
 .stopsContainer{
     display: flex;
     vertical-align: top;
+    color: #4A4A4A;
     flex-direction: column;
+    font-family: Open Sans;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3125rem;
 }
 
 .ticketData{
@@ -43,20 +49,57 @@
     margin-top: -0.5rem;
   
 }
+.ticketPrice{
+    color: #2196F3;
+    font-family: Open Sans;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
 
 .ticketDataText{
-
+    color: #A0B0B9;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.125rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
 }
 
 .textStops{
     margin-bottom: 0.5rem;
+    color: #A0B0B9;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.125rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
 }
 .calculationTimeText{
     display: block;
     margin-top: 1rem;
+    color: #A0B0B9;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.125rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
 }
 .timeCalculation{
     margin-top: 0.5rem;
+    color: #4A4A4A;
+    font-family: Open Sans;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3125rem;
 }
 
 .logo{
@@ -75,6 +118,14 @@
     border: none;
     margin-bottom: 5rem;
     color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
 }
 
 .scrollBtn{
@@ -86,5 +137,13 @@
     bottom: 10rem;
     background-color: #2196F3;
     color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
     border: none;
 }

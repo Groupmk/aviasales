@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchTickets, fetchSearchId } from '../redux/reducers/Fetch-reducer/fetchReducer';
 import CheckBoxFilter from '../components/checkboxFilter/checkBoxFilter';
-import Ticket from '../components/ticket/ticket';
+import Ticket from '../components/tickets/tickets';
 import TabsFilter from '../components/tabs/tabsFilter';
 import Header from '../components/header/headerLogo';
 import Loading from '../alerts/loading';

@@ -11,9 +11,19 @@ const FilterCheckbox = () => {
   const { tickets } = useSelector((state) => state.fetch);
   const [filterText, setFilterText] = useState('Количество пересадок');
   const { checkBox, checkBoxText, checkBoxContainer, check, checkInput, custonCheckBox } = Style;
+
+  const checkboxData = [
+    { name: 'all', label: 'Показать все' },
+    { name: 'nonStops', label: 'Без остановок' },
+    { name: 'oneStop', label: 'Одна остановка' },
+    { name: 'twoStops', label: 'Две остановки' },
+    { name: 'threeStops', label: 'Три остановки' },
+  ];
+
   const shouldShowAllChecked = (updatedFilters) => {
     return updatedFilters.nonStops && updatedFilters.oneStop && updatedFilters.twoStops && updatedFilters.threeStops;
   };
+
   useEffect(() => {
     dispatch(
       setFilter({
@@ -84,61 +94,20 @@ const FilterCheckbox = () => {
     <div className={checkBoxContainer}>
       <p className={checkBoxText}>{filterText}</p>
       <div className={checkBox}>
-        <label className={check}>
-          <input type="checkbox" checked={filters.all} onChange={handleFilterChange('all')} className={checkInput} />
-          <span className={custonCheckBox}>
-            <div className="checkmark"></div>
-          </span>
-          Показать все
-        </label>
-        <label className={check}>
-          <input
-            type="checkbox"
-            checked={filters.nonStops}
-            onChange={handleFilterChange('nonStops')}
-            className={checkInput}
-          />
-          <span className={custonCheckBox}>
-            <div className="checkmark"></div>
-          </span>
-          Без остановок
-        </label>
-        <label className={check}>
-          <input
-            type="checkbox"
-            checked={filters.oneStop}
-            onChange={handleFilterChange('oneStop')}
-            className={checkInput}
-          />
-          <span className={custonCheckBox}>
-            <div className="checkmark"></div>
-          </span>
-          Одна остановка
-        </label>
-        <label className={check}>
-          <input
-            type="checkbox"
-            checked={filters.twoStops}
-            onChange={handleFilterChange('twoStops')}
-            className={checkInput}
-          />
-          <span className={custonCheckBox}>
-            <div className="checkmark"></div>
-          </span>
-          Две остановки
-        </label>
-        <label className={check}>
-          <input
-            type="checkbox"
-            checked={filters.threeStops}
-            onChange={handleFilterChange('threeStops')}
-            className={checkInput}
-          />
-          <span className={custonCheckBox}>
-            <div className="checkmark"></div>
-          </span>
-          Три остановки
-        </label>
+        {checkboxData.map((item) => (
+          <label className={check} key={item.name}>
+            <input
+              type="checkbox"
+              checked={filters[item.name]}
+              onChange={handleFilterChange(item.name)}
+              className={checkInput}
+            />
+            <span className={custonCheckBox}>
+              <div className="checkmark"></div>
+            </span>
+            {item.label}
+          </label>
+        ))}
       </div>
     </div>
   );

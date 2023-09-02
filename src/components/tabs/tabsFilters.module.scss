@@ -13,7 +13,7 @@
     border: solid 0.1px #2196F3;
   }
 
-  .cheapestTab {
+  .cheapest {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,10 +23,19 @@
     flex-shrink: 0;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
+    color: #4A4A4A;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
     cursor: pointer;
   }
   
-  .fastestTab {
+  .fastest {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,10 +45,19 @@
     flex-shrink: 0;
     border-left: solid 0.1px #2196F3;
     border-right: solid 0.1px #2196F3;
+    color: #4A4A4A;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
     cursor: pointer;
   }
   
-  .optimalTab {
+  .optimal {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +67,15 @@
     flex-shrink: 0;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+    color: #4A4A4A;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
     cursor: pointer;
   }
   

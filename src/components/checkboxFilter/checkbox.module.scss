@@ -5,7 +5,14 @@
 }
 
 .checkBoxText{
-    
+    color: #4A4A4A;
+    font-family: Open Sans;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 0.75rem; 
+    letter-spacing: 0.03125rem;
+    text-transform: uppercase;
 
 }
 .checkBoxContainer{
@@ -27,6 +34,11 @@
         width: 13.2rem;
         height: 1.5rem;
         flex-shrink: 0;
+        font-family: Open Sans;
+        font-size: 0.8125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
         &:hover{
             background-color: #F1FCFF;
         }
@@ -35,6 +47,7 @@
     .checkInput{
         position: absolute;
         appearance: none;
+        color: #4A4A4A;
     }
 
     .custonCheckBox{
@@ -43,8 +56,11 @@
         height: 1rem;
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Checkbox'%3E%3Crect id='Form' x='0.5' y='0.5' width='19' height='19' rx='1.5' stroke='%239ABBCE'/%3E%3C/g%3E%3C/svg%3E");
         background-color: #F1FCFF;
-        margin-left: 1.7rem;
+        margin-left: 2.3rem;
         display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
     }
     .checkInput:checked + .custonCheckBox{
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Checkbox'%3E%3Crect id='Form' x='0.5' y='0.5' width='19' height='19' rx='1.5' stroke='%232196F3'/%3E%3Cpath id='Shape' d='M8.28571 14L4 10.1612L5.20857 9.0787L8.28571 11.8273L14.7914 6L16 7.09021L8.28571 14Z' fill='%232196F3'/%3E%3C/g%3E%3C/svg%3E");

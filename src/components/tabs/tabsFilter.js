@@ -11,10 +11,10 @@ const FilteredTicketsComponent = () => {
   const dispatch = useDispatch();
   const { activeTab, filteredTicket } = useSelector((state) => state.tabsFilter);
   const { filteredCheckBox } = useSelector((state) => state.checkBox);
-  const { container, cheapestTab, fastestTab, optimalTab } = Style;
+  const { container } = Style;
 
   useEffect(() => {
-    const FilterTabsTickets = async () => {
+    const filterTabsTickets = async () => {
       const filterTicket = [...filteredCheckBox].sort((a, b) => {
         if (activeTab === 'cheapest') {
           return a.price - b.price;
@@ -31,8 +31,14 @@ const FilteredTicketsComponent = () => {
       }
     };
 
-    FilterTabsTickets();
+    filterTabsTickets();
   }, [activeTab, filteredCheckBox, filteredTicket, dispatch]);
+
+  const tabs = [
+    { name: 'cheapest', label: 'Самый дешевый' },
+    { name: 'fastest', label: 'Самый быстрый' },
+    { name: 'optimal', label: 'Оптимальный' },
+  ];
 
   const changeTab = (activeTab) => {
     dispatch(setFilteredTicket(activeTab));
@@ -41,36 +47,19 @@ const FilteredTicketsComponent = () => {
 
   return (
     <div className={container}>
-      <div
-        className={cheapestTab}
-        style={{
-          backgroundColor: activeTab === 'cheapest' ? '#2196F3' : null,
-          color: activeTab === 'cheapest' ? 'white' : null,
-        }}
-        onClick={() => changeTab('cheapest')}
-      >
-        Самый дешевый
-      </div>
-      <div
-        className={fastestTab}
-        onClick={() => changeTab('fastest')}
-        style={{
-          backgroundColor: activeTab === 'fastest' ? '#2196F3' : null,
-          color: activeTab === 'fastest' ? 'white' : null,
-        }}
-      >
-        Самый быстрый
-      </div>
-      <div
-        className={optimalTab}
-        onClick={() => changeTab('optimal')}
-        style={{
-          backgroundColor: activeTab === 'optimal' ? '#2196F3' : null,
-          color: activeTab === 'optimal' ? 'white' : null,
-        }}
-      >
-        Оптимальный
-      </div>
+      {tabs.map((tab) => (
+        <div
+          key={tab.name}
+          className={Style[tab.name]}
+          onClick={() => changeTab(tab.name)}
+          style={{
+            backgroundColor: activeTab === tab.name ? '#2196F3' : null,
+            color: activeTab === tab.name ? 'white' : null,
+          }}
+        >
+          {tab.label}
+        </div>
+      ))}
     </div>
   );
 };
