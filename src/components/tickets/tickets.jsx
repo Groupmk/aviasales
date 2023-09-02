@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setShow, setResShow } from '../../redux/reducers/reducerCheckBox/reducerCheckBox';
 import logoAviasales from '../../imports/importsImg';
 import Informational from '../../alerts/informations';
 import TicketSegment from '../../ticketsSegment/ticketSegment';
@@ -8,9 +9,9 @@ import TicketSegment from '../../ticketsSegment/ticketSegment';
 import Style from './tickets.module.scss';
 
 const Ticket = () => {
-  const { filteredCheckBox } = useSelector((state) => state.checkBox);
-  const [initialVisibleTickets] = useState(5);
-  const [visibleTickets, setVisibleTickets] = useState(initialVisibleTickets);
+  const dispatch = useDispatch();
+  const { filteredCheckBox, filters, show } = useSelector((state) => state.checkBox);
+  const { activeTab } = useSelector((state) => state.tabsFilter);
   const scrollToTopButtonRef = useRef(null);
   const {
     container,
@@ -30,12 +31,14 @@ const Ticket = () => {
   } = Style;
 
   const handleShowMore = () => {
-    setVisibleTickets((prevVisibleTickets) => prevVisibleTickets + 5);
+    dispatch(setShow());
   };
 
   useEffect(() => {
-    setVisibleTickets(initialVisibleTickets);
-  }, [filteredCheckBox]);
+    if (filters || activeTab) {
+      dispatch(setResShow());
+    }
+  }, [filters, activeTab]);
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -56,14 +59,11 @@ const Ticket = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const isAllTicketsLoaded = visibleTickets >= filteredCheckBox.length;
-
   if (filteredCheckBox.length === 0) return <Informational />;
 
   return (
     <div className={container}>
-      {filteredCheckBox.slice(0, visibleTickets).map((ticket, index) => (
+      {filteredCheckBox.slice(0, show).map((ticket, index) => (
         <div key={index} className={ticketCard}>
           <div className={ticketContainerHeder}>
             <h2 className={ticketPrice}>{ticket.price}P</h2>
@@ -89,7 +89,7 @@ const Ticket = () => {
       <button onClick={scrollToTop} ref={scrollToTopButtonRef} className={scrollBtn}>
         ЖМЯК PUSH UP
       </button>
-      {!isAllTicketsLoaded && (
+      {show < filteredCheckBox.length && (
         <button className={showMore} onClick={handleShowMore}>
           ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ
         </button>
